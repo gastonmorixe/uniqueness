@@ -49,6 +49,7 @@ module Uniqueness
     end
 
     def uniqueness_validation
+      return self.new_record?      
       self.class.uniqueness_options.each do |field, options|
         value = send(field)
         if value.nil?
